@@ -6,6 +6,9 @@
 trigger:
 - master
 
+variables:
+  solutionPath: HardWaxReborn
+
 
 jobs:
 - job: build_linux
