@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardWaxReborn", "HardWaxReborn\HardWaxReborn.csproj", "{C5A9EE39-586D-49D9-9D9F-2D1B5605C6E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardWaxReborn.Domain", "HardWaxReborn.Domain\HardWaxReborn.Domain.csproj", "{34355787-B703-412E-8545-CF5EBCD5AF23}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C5A9EE39-586D-49D9-9D9F-2D1B5605C6E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5A9EE39-586D-49D9-9D9F-2D1B5605C6E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5A9EE39-586D-49D9-9D9F-2D1B5605C6E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5A9EE39-586D-49D9-9D9F-2D1B5605C6E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34355787-B703-412E-8545-CF5EBCD5AF23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34355787-B703-412E-8545-CF5EBCD5AF23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34355787-B703-412E-8545-CF5EBCD5AF23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34355787-B703-412E-8545-CF5EBCD5AF23}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7B574ED0-F6CE-4E03-83F0-23096DD21C03}
+	EndGlobalSection
+EndGlobal
