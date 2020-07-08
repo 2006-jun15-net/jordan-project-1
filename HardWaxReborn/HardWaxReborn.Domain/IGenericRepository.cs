@@ -4,8 +4,12 @@ using System.Text;
 
 namespace HardWaxReborn.Domain
 {
-    interface IGenericRepository<TEntity> where TEntity : class
+    public interface IGenericRepository<TEntity> where TEntity : class
     {
+         IEnumerable<TEntity> Get();
+
+
+
 
     }
 }
