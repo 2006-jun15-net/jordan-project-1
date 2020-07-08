@@ -7,17 +7,18 @@ trigger:
 - master
 
 
-
-pool:
-  vmImage: 'ubuntu-latest'
-
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+jobs:
+- job: build_linux
+  # pool section defines what agent the job will run on
+  pool:
+    # get a microsoft-hosted agent running the latest ubuntu linux.
+    vmImage: 'ubuntu-latest'
+  
+  steps:
+  - script: dotnet build -c Release
+    displayName: dotnet build
+    workingDirectory: $(solutionPath)
+  
+  
 
 
