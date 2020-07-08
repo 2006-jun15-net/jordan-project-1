@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardWaxReborn", "HardWaxReborn\HardWaxReborn.csproj", "{C5A9EE39-586D-49D9-9D9F-2D1B5605C6E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HardWaxReborn", "HardWaxReborn\HardWaxReborn.csproj", "{C5A9EE39-586D-49D9-9D9F-2D1B5605C6E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardWaxReborn.Domain", "HardWaxReborn.Domain\HardWaxReborn.Domain.csproj", "{34355787-B703-412E-8545-CF5EBCD5AF23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HardWaxReborn.Domain", "HardWaxReborn.Domain\HardWaxReborn.Domain.csproj", "{34355787-B703-412E-8545-CF5EBCD5AF23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardWaxReborn.DAL", "HardWaxReborn.DAL\HardWaxReborn.DAL.csproj", "{2ACB21DF-078A-4B92-B350-C0753CE1D7E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{34355787-B703-412E-8545-CF5EBCD5AF23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34355787-B703-412E-8545-CF5EBCD5AF23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34355787-B703-412E-8545-CF5EBCD5AF23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ACB21DF-078A-4B92-B350-C0753CE1D7E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ACB21DF-078A-4B92-B350-C0753CE1D7E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ACB21DF-078A-4B92-B350-C0753CE1D7E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ACB21DF-078A-4B92-B350-C0753CE1D7E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

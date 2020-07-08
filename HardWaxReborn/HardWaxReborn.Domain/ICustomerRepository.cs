@@ -4,9 +4,11 @@ using System.Text;
 
 namespace HardWaxReborn.Domain
 {
-    public interface IGenericRepository<TEntity> where TEntity : class
+    public interface ICustomerRepository<T> 
     {
-         IEnumerable<TEntity> Get();
+         IEnumerable<T> GetAll();
+
+
 
 
 
