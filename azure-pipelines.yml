@@ -20,5 +20,4 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
 
-- script: dotnet build
-  displayName: 'Builds the project'
+
