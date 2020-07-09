@@ -4,10 +4,14 @@
 # https://aka.ms/yaml
 
 trigger:
-- master
+  branches:
+    include:
+    - master
+    exclude:
+    - release/outdated
 
 variables:
-  solutionPath: HardWaxReborn
+  solutionPath: HardWaxReborn/HardWaxReborn
 
 
 jobs:
@@ -18,10 +22,16 @@ jobs:
     vmImage: 'ubuntu-latest'
   
   steps:
+  
+
   - script: dotnet build -c Release
     displayName: dotnet build
     workingDirectory: $(solutionPath)
   
+
+  - script: dotnet publish -c Release -o ../publish
+    displayName: dotnet publish
+    workingDirectory: $(solutionPath)
   
 
 
