@@ -4,20 +4,34 @@
 # https://aka.ms/yaml
 
 trigger:
-- master
+  branches:
+    include:
+    - master
+    exclude:
+    - release/outdated
+
+variables:
+  solutionPath: HardWaxReborn/HardWaxReborn
 
 
+jobs:
+- job: build_linux
+  # pool section defines what agent the job will run on
+  pool:
+    # get a microsoft-hosted agent running the latest ubuntu linux.
+    vmImage: 'ubuntu-latest'
+  
+  steps:
+  
 
-pool:
-  vmImage: 'ubuntu-latest'
+  - script: dotnet build -c Release
+    displayName: dotnet build
+    workingDirectory: $(solutionPath)
+  
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+  - script: dotnet publish -c Release -o ../publish
+    displayName: dotnet publish
+    workingDirectory: $(solutionPath)
+  
 
 
