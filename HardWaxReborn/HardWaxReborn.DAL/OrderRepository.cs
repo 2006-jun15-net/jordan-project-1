@@ -7,7 +7,12 @@ using System.Linq;
 using System.Text;
 
 namespace HardWaxReborn.DAL
-{
+{   /// <summary>
+/// Repository responsible for handling all Access To Orders
+/// </summary>
+/// <remarks>
+/// Responsible for displaying a customer's order history
+/// </remarks>
     class OrderRepository : IOrderRepository<Order>
     {
         private readonly HardWaxStoreContext _context;
@@ -29,15 +34,14 @@ namespace HardWaxReborn.DAL
 
         }
 
-        public OrderSummary GetAllByCustomer(Customer customer)
+        public List<OrderDetails> GetAllByCustomer(Customer customer)
         {
             var customerOrders = _context.Orders.Include(o => o.OrderDetails)
                     .ToList();
-            List<Order> orderhist = new List<Order>();
-            OrderSummary orderSummary = new OrderSummary();
+            List<OrderDetails> orderSummary = new List<OrderDetails>();
             foreach(var customerOrder in customerOrders)
             {
-               orderSummary.Orders.Add((Order)customerOrder.OrderDetails.Where(od => od.CustomerId == customer.Id));
+                orderSummary.Add(customerOrder.OrderDetails.Where(od => od.CustomerId == customer.Id).FirstOrDefault());
                 
                
             }
@@ -52,5 +56,7 @@ namespace HardWaxReborn.DAL
         {
             throw new NotImplementedException();
         }
+
+
     }
 }

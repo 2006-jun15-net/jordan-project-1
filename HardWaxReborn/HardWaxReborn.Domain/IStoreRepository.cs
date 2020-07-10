@@ -4,12 +4,10 @@ using System.Text;
 
 namespace HardWaxReborn.Domain
 {
-    public interface IOrderRepository<T>
+    public interface IStoreRepository
     {
-       
+        void Update(Store store);
 
-        
-
-        void Create(Order order);
+        IEnumerable<Store> GetAll();
     }
 }
