@@ -9,5 +9,13 @@ namespace HardWaxReborn.Domain
 
         public double OrderTotal { get; set; }
 
+        public Order(int id, double orderTotal)
+        {
+            Id = id;
+            OrderTotal = orderTotal;
+            
+
+        }
+
     }
 }

@@ -6,12 +6,13 @@ namespace HardWaxReborn.Domain
 {
     public class Customer
     {
-        private string _firstName;
+        private readonly string _firstName;
 
-        private string _lastName;
+        private readonly string _lastName;
 
-        private string _userName;
+        private readonly string _userName;
         
+        public int Id { get; set; }
         public string FirstName 
         { get => _firstName;
             set

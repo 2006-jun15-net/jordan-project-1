@@ -11,5 +11,13 @@ namespace HardWaxReborn.Domain
         public string Name { get; set; }
 
         public Dictionary<Product, int> Stock { get; set; }
+
+        public Store(int id, string name)
+        {
+            Id = id;
+            Name = name;
+
+
+        }
     }
 }

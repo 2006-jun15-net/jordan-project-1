@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HardWaxReborn", "HardWaxReb
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HardWaxReborn.Domain", "HardWaxReborn.Domain\HardWaxReborn.Domain.csproj", "{34355787-B703-412E-8545-CF5EBCD5AF23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardWaxReborn.DAL", "HardWaxReborn.DAL\HardWaxReborn.DAL.csproj", "{2ACB21DF-078A-4B92-B350-C0753CE1D7E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HardWaxReborn.DAL", "HardWaxReborn.DAL\HardWaxReborn.DAL.csproj", "{2ACB21DF-078A-4B92-B350-C0753CE1D7E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardWaxReborn.Tests", "HardWaxReborn.Tests\HardWaxReborn.Tests.csproj", "{47A2622B-B98B-4F5E-AFDD-D61E351BC644}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{2ACB21DF-078A-4B92-B350-C0753CE1D7E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2ACB21DF-078A-4B92-B350-C0753CE1D7E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2ACB21DF-078A-4B92-B350-C0753CE1D7E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47A2622B-B98B-4F5E-AFDD-D61E351BC644}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47A2622B-B98B-4F5E-AFDD-D61E351BC644}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47A2622B-B98B-4F5E-AFDD-D61E351BC644}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47A2622B-B98B-4F5E-AFDD-D61E351BC644}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
