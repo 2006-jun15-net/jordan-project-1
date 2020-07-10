@@ -34,6 +34,7 @@ namespace HardWaxReborn.DAL
         {
             
             var customerEntity = new Customers();
+            customerEntity.Id = customer.Id;
             customerEntity.FirstName = customer.FirstName;
             customerEntity.LastName = customer.LastName;
             customerEntity.Username = customer.UserName;

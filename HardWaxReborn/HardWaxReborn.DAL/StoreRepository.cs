@@ -20,7 +20,6 @@ namespace HardWaxReborn.DAL
         {
             var storeEntities = _context.Stores
                 .Include(s => s.Inventory)
-                    .ThenInclude(i => i.Quantity)
                 .ToList();
             var storeDomains = new List<Store>();
             foreach(var item in storeEntities)
@@ -36,6 +35,9 @@ namespace HardWaxReborn.DAL
         public void Update(Store store)
         {
             var storeEntity = new Stores();
+            storeEntity.Id = store.Id;
+            storeEntity.StoreName = store.Name;
+            _context.Entry(storeEntity).State = EntityState.Modified;
 
         }
     }
