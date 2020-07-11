@@ -8,5 +8,7 @@ namespace HardWaxReborn.Domain
     {
         public Dictionary<int, int> ProductId_Quantity { get; set; }
 
+        public List<Store> Stores { get; set; }
+
     }
 }

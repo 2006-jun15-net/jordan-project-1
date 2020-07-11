@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HardWaxReborn.DAL;
 using HardWaxReborn.DAL.Entities;
+using HardWaxReborn.Domain;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,6 +29,11 @@ namespace HardWaxReborn
         {
             services.AddDbContext<HardWaxStoreContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("SqlServer")));
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IStoreRepository, StoreRepository>();
+            services.AddScoped<UnitOfWork, UnitOfWork>();
 
             services.AddControllersWithViews();
         }

@@ -8,7 +8,9 @@ namespace HardWaxReborn.Domain
     {
         IEnumerable<Product> GetAll();
 
-        IEnumerable<Product> GetAllByStore(int storeId);
+        Product GetById(int Id);
+
+       
         
 
         

@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace HardWaxReborn.DAL
 {
-    public class CustomerRepository : ICustomerRepository<Customer>
+    public class CustomerRepository : ICustomerRepository
     {
         private readonly HardWaxStoreContext _context;
         public CustomerRepository(HardWaxStoreContext context)
@@ -41,17 +41,27 @@ namespace HardWaxReborn.DAL
             _context.Entry(customerEntity).State = EntityState.Modified;
         }
 
-        IEnumerable<Customer> ICustomerRepository<Customer>.GetAll()
+        IEnumerable<Customer> GetAll()
         {
            var customerEntities =  _context.Customers.ToList();
             List<Customer> customers = (List<Customer>)customerEntities.Select(e => new Customer(e.FirstName, e.LastName, e.Username));
             return customers;
         }
 
-        Customer ICustomerRepository<Customer>.GetById(int Id)
+        IEnumerable<Customer> ICustomerRepository.GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        Customer GetById(int Id)
         {
             var customerEntity = _context.Customers.Find(Id);
             return new Customer(customerEntity.FirstName, customerEntity.LastName, customerEntity.Username);
+        }
+
+        Customer ICustomerRepository.GetById(int Id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HardWaxReborn.Domain
 {
-    public interface IOrderRepository<T>
+    public interface IOrderRepository
     {
        
 

@@ -30,22 +30,11 @@ namespace HardWaxReborn.DAL
             return products;
         }
 
-        public IEnumerable<Product> GetAllByStore(int storeId)
+        public Product GetById(int Id)
         {
-            List<Product> products = new List<Product>();
-            var productEntities = _context.Products
-                .Include(p => p.Inventory)
-                    .ThenInclude(i => i.StoreId)
-                .SelectMany(pe => pe.Inventory)
-                .Select(i => i.StoreId)
-                .Where(i => i == storeId)
-                .ToList();
-            foreach(var product in productEntities)
-            {
-                products.Add(new Product(product.Id, product.ProductName, (double)product.Price, product.Type));
-            }
-                   
-
+            var productEntity = _context.Products.Find(Id);
+            var product = new Product(productEntity.Id, productEntity.ProductName, (double)productEntity.Price, productEntity.Type);
+            return product;
         }
     }
 }

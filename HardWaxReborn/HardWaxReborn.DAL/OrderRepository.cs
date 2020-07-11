@@ -13,7 +13,7 @@ namespace HardWaxReborn.DAL
 /// <remarks>
 /// Responsible for displaying a customer's order history
 /// </remarks>
-    public class OrderRepository : IOrderRepository<Order>
+    public class OrderRepository : IOrderRepository
     {
         private readonly HardWaxStoreContext _context;
 

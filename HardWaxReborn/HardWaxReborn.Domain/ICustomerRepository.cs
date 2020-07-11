@@ -2,11 +2,11 @@
 
 namespace HardWaxReborn.Domain
 {
-    public interface ICustomerRepository<T> 
+    public interface ICustomerRepository 
     {
-        IEnumerable<T> GetAll();
+        IEnumerable<Customer> GetAll();
 
-        T GetById (int Id);
+        Customer GetById (int Id);
 
         void Insert(Customer customer);
 

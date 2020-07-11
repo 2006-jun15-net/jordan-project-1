@@ -11,6 +11,7 @@ namespace HardWaxReborn.DAL
         private CustomerRepository customerRepository;
         private OrderRepository orderRepository;
         private StoreRepository storeRepository;
+        private ProductRepository productRepository;
 
         public CustomerRepository CustomerRepository
         {
@@ -47,6 +48,19 @@ namespace HardWaxReborn.DAL
                 return storeRepository;
             }
         }
+
+        public ProductRepository ProductRepository
+        {
+            get
+            {
+                if (productRepository == null)
+                {
+                    productRepository = new ProductRepository(_context);
+                }
+                return productRepository;
+            }
+        }
+
 
         public void Save()
         {
