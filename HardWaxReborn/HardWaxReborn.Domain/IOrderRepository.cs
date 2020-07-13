@@ -10,6 +10,6 @@ namespace HardWaxReborn.Domain
 
         
 
-        void Create(Order order);
+        void Create(Order order, ShoppingCart cart);
     }
 }

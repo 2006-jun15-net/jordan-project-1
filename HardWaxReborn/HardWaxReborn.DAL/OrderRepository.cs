@@ -21,7 +21,7 @@ namespace HardWaxReborn.DAL
         {
             _context = context;
         }
-        public void Create(Order order)
+        public void Create(Order order, ShoppingCart cart)
         {
             var orderEntity = new Orders
             {

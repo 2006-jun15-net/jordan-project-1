@@ -9,6 +9,7 @@ namespace HardWaxReborn.Models
 {
     public class CustomerViewModel
     {
+        public int Id { get; set; }
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
@@ -16,6 +17,6 @@ namespace HardWaxReborn.Models
         [Required]
         public string UserName { get; set; }
 
-        public List<Order> OrderHistory { get; set; }
+        public List<OrderViewModel> OrderHistory { get; set; }
     }
 }
