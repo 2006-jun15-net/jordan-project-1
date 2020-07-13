@@ -13,6 +13,11 @@ namespace HardWaxReborn.DAL
         private StoreRepository storeRepository;
         private ProductRepository productRepository;
 
+        public UnitOfWork()
+        {
+            _context = new HardWaxStoreContext();
+        }
+
         public CustomerRepository CustomerRepository
         {
             get
