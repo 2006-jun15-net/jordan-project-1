@@ -32,6 +32,15 @@ jobs:
   - script: dotnet publish -c Release -o ../publish
     displayName: dotnet publish
     workingDirectory: $(solutionPath)
+
+  - task: AzureRmWebAppDeployment@4
+    inputs:
+        ConnectionType: 'AzureRM'
+        azureSubscription: 'Azure subscription 1(1)(aa31cd6b-acc5-4b84-9676-80786eabb5e2)'
+        appType: 'webAppLinux'
+        WebAppName: 'HardWaxStore'
+        packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+        RuntimeStack: 'DOTNETCORE|1.1'
   
 
 
