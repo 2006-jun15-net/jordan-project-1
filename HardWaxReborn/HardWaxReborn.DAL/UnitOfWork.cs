@@ -13,19 +13,21 @@ namespace HardWaxReborn.DAL
         private StoreRepository storeRepository;
         private ProductRepository productRepository;
 
-        public UnitOfWork()
+        public UnitOfWork(CustomerRepository crepo, OrderRepository orepo, StoreRepository srepo, ProductRepository prepo, HardWaxStoreContext context)
         {
-            _context = new HardWaxStoreContext();
+            customerRepository = crepo;
+            orderRepository = orepo;
+            storeRepository = srepo;
+            productRepository = prepo;
+            _context = context;
+
+            
         }
 
         public CustomerRepository CustomerRepository
         {
             get
             {
-                if (customerRepository == null)
-                {
-                    customerRepository = new CustomerRepository(_context);
-                }
                 return customerRepository;
             }
         }
@@ -34,10 +36,6 @@ namespace HardWaxReborn.DAL
         {
             get
             {
-                if(orderRepository == null)
-                {
-                    orderRepository = new OrderRepository(_context);
-                }
                 return orderRepository;
             }
         }
@@ -46,10 +44,6 @@ namespace HardWaxReborn.DAL
         {
             get
             {
-                if (storeRepository == null)
-                {
-                    storeRepository = new StoreRepository(_context);
-                }
                 return storeRepository;
             }
         }
@@ -58,10 +52,6 @@ namespace HardWaxReborn.DAL
         {
             get
             {
-                if (productRepository == null)
-                {
-                    productRepository = new ProductRepository(_context);
-                }
                 return productRepository;
             }
         }

@@ -29,11 +29,11 @@ namespace HardWaxReborn
         {
             services.AddDbContext<HardWaxStoreContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("SqlServer")));
-            services.AddScoped<ICustomerRepository, CustomerRepository>();
-            services.AddScoped<IOrderRepository, OrderRepository>();
-            services.AddScoped<IProductRepository, ProductRepository>();
-            services.AddScoped<IStoreRepository, StoreRepository>();
-            services.AddScoped<UnitOfWork, UnitOfWork>();
+            services.AddScoped<CustomerRepository>();
+            services.AddScoped<OrderRepository>();
+            services.AddScoped<ProductRepository>();
+            services.AddScoped<StoreRepository>();
+            services.AddScoped<UnitOfWork>();
 
             services.AddControllersWithViews();
         }

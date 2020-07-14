@@ -10,5 +10,7 @@ namespace HardWaxReborn.Domain
 
         public List<Store> Stores { get; set; }
 
+        public Customer Customer { get; set; }
+
     }
 }

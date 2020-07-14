@@ -62,11 +62,12 @@ namespace HardWaxReborn.Domain
 
         public List<Order> OrderHistory { get; set; }
 
-        public Customer (string firstName, string lastName, string userName)
+        public Customer (int id, string firstName, string lastName, string userName)
         {
-            FirstName = firstName;
-            LastName = lastName;
-            UserName = userName;
+            _firstName = firstName;
+            _lastName = lastName;
+            _userName = userName;
+            Id = id;
         }
     }
         

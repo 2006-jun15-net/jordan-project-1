@@ -7,6 +7,7 @@ using HardWaxReborn.Domain;
 using HardWaxReborn.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Razor.Language;
 
 namespace HardWaxReborn.Controllers
 {
@@ -24,15 +25,78 @@ namespace HardWaxReborn.Controllers
             IEnumerable<Product> productDomains = UOW.ProductRepository.GetAll();
             IEnumerable<ProductViewModel> productViewModels = productDomains.Select(x => new ProductViewModel
             {
+                Id = x.Id,
+                Name = x.Name,
+                Type = x.Type,
+                Price = x.Price
+
+
+            }) ;
+
+            return View(productViewModels);
+        }
+
+        [HttpPost]
+        public ActionResult Order(CustomerViewModel customer)
+        {
+            CompositeViewModel model = new CompositeViewModel();
+            TempData["CustomerId"] = customer.Id;
+            TempData["CurrentUser"] = customer.FirstName;
+            IEnumerable<Product> productDomains = UOW.ProductRepository.GetAll();
+            IEnumerable<ProductViewModel> productViewModels = productDomains.Select(x => new ProductViewModel
+            {
+                Id = x.Id,
                 Name = x.Name,
                 Type = x.Type,
                 Price = x.Price
 
 
             });
-
+           // IEnumerable<Store> storeDomains = UOW.StoreRepository.GetAll().ToList();
+          //  List<StoreViewModel> storeViewModels = new List<StoreViewModel>();
+          //  foreach(var store in storeDomains)
+         //   {
+         //       storeViewModels.Add(new StoreViewModel
+          //      {
+          //          Id = store.Id
+          //      });
+                
+          //  }
+      
+          //  model.Products = productViewModels;
+          //  model.Stores = storeViewModels;
+          //  model.Customer = customer;
+         //   model.Cart = new ShoppingCartViewModel();
+         //   model.Order = new OrderViewModel();
             return View(productViewModels);
+
         }
+
+        public ActionResult PlaceOrder (int quantity, int productId)
+        {
+            ShoppingCart cart = new ShoppingCart();
+           //Store store = UOW.StoreRepository.GetAll().Where(s => s.Stock.ContainsKey(productId)).FirstOrDefault();
+            Store s = new Store();
+            s.Id = 1;
+            s.Name = "Guitar Center";
+           
+            cart.Stores.Add(s);
+            cart.ProductId_Quantity.Add(productId, quantity);
+            Customer customer = UOW.CustomerRepository.GetById((int)TempData["CustomerId"]);
+            cart.Customer = customer;
+            OrderService os = new OrderService(UOW.ProductRepository);
+            Order order = os.PlaceOrder(cart);
+            UOW.OrderRepository.Create(order, cart);
+            UOW.Save();
+            UOW.Dispose();
+
+
+            return View();
+             
+        }
+
+
+
 
         // GET: ProductController/Details/5
         public ActionResult Details(int id)
@@ -44,7 +108,7 @@ namespace HardWaxReborn.Controllers
                 Price = product.Price
                 
             };
-            return View();
+            return View(productViewModel);
         }
 
         // GET: ProductController/Create

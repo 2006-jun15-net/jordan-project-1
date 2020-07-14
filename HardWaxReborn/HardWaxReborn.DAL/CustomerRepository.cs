@@ -1,6 +1,7 @@
 ﻿using HardWaxReborn.DAL.Entities;
 using HardWaxReborn.Domain;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,27 +42,38 @@ namespace HardWaxReborn.DAL
             _context.Entry(customerEntity).State = EntityState.Modified;
         }
 
-        IEnumerable<Customer> GetAll()
+        public IEnumerable<Customer> GetAll()
         {
            var customerEntities =  _context.Customers.ToList();
-            List<Customer> customers = (List<Customer>)customerEntities.Select(e => new Customer(e.FirstName, e.LastName, e.Username));
-            return customers;
+            List<Customer> customerDomains = new List<Customer>();
+            foreach(var item in customerEntities)
+            {
+                customerDomains.Add(new Customer(item.Id, item.FirstName, item.LastName, item.Username));
+
+            }
+            foreach(var item in customerDomains)
+            {
+                var orderEntity = _context.OrderDetails.Where(od => od.CustomerId == item.Id).Select(od => od.Order).FirstOrDefault();
+                if (orderEntity != null)
+                {
+                    var orderDomain = new Order(orderEntity.Id, (double)orderEntity.Total);
+                    orderDomain.Placed = orderEntity.OrderTime;
+
+                    item.OrderHistory.Add(orderDomain);
+                }
+            }
+            
+            return customerDomains;
         }
 
-        IEnumerable<Customer> ICustomerRepository.GetAll()
-        {
-            throw new NotImplementedException();
-        }
 
-        Customer GetById(int Id)
+
+        public Customer GetById(int Id)
         {
             var customerEntity = _context.Customers.Find(Id);
-            return new Customer(customerEntity.FirstName, customerEntity.LastName, customerEntity.Username);
+            return new Customer(customerEntity.Id,customerEntity.FirstName, customerEntity.LastName, customerEntity.Username);
         }
 
-        Customer ICustomerRepository.GetById(int Id)
-        {
-            throw new NotImplementedException();
-        }
+ 
     }
 }

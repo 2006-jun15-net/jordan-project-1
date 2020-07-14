@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 
 namespace HardWaxReborn.DAL
@@ -30,7 +31,38 @@ namespace HardWaxReborn.DAL
             };
 
             _context.Orders.Add(orderEntity);
-            order.Id = orderEntity.Id;
+            List<OrderDetails> orderDetailsEntity = new List <OrderDetails>();
+            List<Inventory> inventoryEntities = new List<Inventory>();
+            foreach (var item in cart.Stores)
+            {
+
+                inventoryEntities.Add(_context.Inventory.Where(i => i.StoreId == item.Id).FirstOrDefault());
+            }
+            foreach (var item in inventoryEntities)
+            {
+                item.Quantity -= cart.ProductId_Quantity[item.ProductId];
+                orderDetailsEntity.Add(new OrderDetails
+                {
+                    ProductQuantiy = item.Quantity,
+                    InventoryId = item.Id,
+                    CustomerId = cart.Customer.Id
+
+                }) ;
+                _context.Entry(item).State = EntityState.Modified;
+
+            }
+            foreach (var item in orderDetailsEntity)
+            {
+                _context.Entry(item).State = EntityState.Modified;
+            }
+           
+             
+
+
+            
+
+            
+            
 
         }
 

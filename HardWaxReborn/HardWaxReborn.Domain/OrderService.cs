@@ -7,6 +7,20 @@ namespace HardWaxReborn.Domain
     public class OrderService
     {
         private readonly IProductRepository productRepository;
+
+        public IProductRepository ProductRepository
+        {
+            get
+            {
+                return productRepository;
+            }
+        }
+
+        public OrderService(IProductRepository prepo)
+        {
+            productRepository = prepo;
+
+        }
         public Order PlaceOrder(ShoppingCart cart)
         {
             double orderTotal = 0.00;

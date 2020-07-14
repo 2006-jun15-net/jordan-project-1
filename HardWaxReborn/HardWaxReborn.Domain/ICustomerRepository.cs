@@ -4,9 +4,7 @@ namespace HardWaxReborn.Domain
 {
     public interface ICustomerRepository 
     {
-        IEnumerable<Customer> GetAll();
 
-        Customer GetById (int Id);
 
         void Insert(Customer customer);
 
