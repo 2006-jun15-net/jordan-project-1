@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  hardwaxreborn:
+    image: ${DOCKER_REGISTRY-}hardwaxreborn
+    build:
+      context: .
+      dockerfile: HardWaxReborn/Dockerfile

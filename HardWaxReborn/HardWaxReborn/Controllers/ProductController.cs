@@ -75,11 +75,13 @@ namespace HardWaxReborn.Controllers
         public ActionResult PlaceOrder (int quantity, int productId)
         {
             ShoppingCart cart = new ShoppingCart();
-           //Store store = UOW.StoreRepository.GetAll().Where(s => s.Stock.ContainsKey(productId)).FirstOrDefault();
-            Store s = new Store();
-            s.Id = 1;
-            s.Name = "Guitar Center";
-           
+            //Store store = UOW.StoreRepository.GetAll().Where(s => s.Stock.ContainsKey(productId)).FirstOrDefault();
+            Store s = new Store
+            {
+                Id = 1,
+                Name = "Guitar Center"
+            };
+
             cart.Stores.Add(s);
             cart.ProductId_Quantity.Add(productId, quantity);
             Customer customer = UOW.CustomerRepository.GetById((int)TempData["CustomerId"]);

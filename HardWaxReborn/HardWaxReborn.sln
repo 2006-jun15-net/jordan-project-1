@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HardWaxReborn.Domain", "Har
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HardWaxReborn.DAL", "HardWaxReborn.DAL\HardWaxReborn.DAL.csproj", "{2ACB21DF-078A-4B92-B350-C0753CE1D7E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardWaxReborn.Tests", "HardWaxReborn.Tests\HardWaxReborn.Tests.csproj", "{47A2622B-B98B-4F5E-AFDD-D61E351BC644}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HardWaxReborn.Tests", "HardWaxReborn.Tests\HardWaxReborn.Tests.csproj", "{47A2622B-B98B-4F5E-AFDD-D61E351BC644}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{7DE6C419-B4A0-42BB-9952-15ED67CC4B56}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{47A2622B-B98B-4F5E-AFDD-D61E351BC644}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47A2622B-B98B-4F5E-AFDD-D61E351BC644}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47A2622B-B98B-4F5E-AFDD-D61E351BC644}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DE6C419-B4A0-42BB-9952-15ED67CC4B56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DE6C419-B4A0-42BB-9952-15ED67CC4B56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DE6C419-B4A0-42BB-9952-15ED67CC4B56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DE6C419-B4A0-42BB-9952-15ED67CC4B56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
